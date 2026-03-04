@@ -1,0 +1,19 @@
+# Images Directory
+
+Place your images here:
+
+## Required Images:
+- profile.jpg (400x500px) - Your profile photo for About section
+- projects/project1.jpg (400x300px) - Project screenshot 1
+- projects/project2.jpg (400x300px) - Project screenshot 2
+- projects/project3.jpg (400x300px) - Project screenshot 3
+
+## Recommended Image Formats:
+- JPG/JPEG for photos
+- PNG for logos and graphics with transparency
+- WebP for optimized web images
+
+## Image Optimization Tips:
+- Compress images before uploading
+- Use appropriate dimensions
+- Consider using lazy loading for better performance

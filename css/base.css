@@ -1,0 +1,410 @@
+/* ===================================
+   Portfolio Website - Base Styles
+   @description Core styles and utilities
+   @author Lalit Magar
+   @version 3.0.0 - Refined Edition
+   @license MIT
+   =================================== */
+
+/* ===== Base Styles ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #0a0a0a;
+    color: #fff;
+    overflow-x: clip;
+    line-height: 1.6;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    max-width: 100vw;
+}
+
+html {
+    scroll-behavior: auto;
+    scroll-padding-top: 80px;
+}
+
+/* ===== Utility Classes ===== */
+.text-muted {
+    color: #999 !important;
+}
+
+.shadow {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) !important;
+}
+
+.hidden {
+    opacity: 0 !important;
+    pointer-events: none !important;
+    visibility: hidden !important;
+}
+
+/* ===== Page Sections ===== */
+.page-section {
+    padding: 5rem 0;
+    background: #0a0a0a;
+}
+
+.page-section:nth-child(even) {
+    background: #111;
+}
+
+.section-title h2 {
+    margin-bottom: 1rem;
+}
+
+.section-title .lead {
+    color: #ccc;
+}
+
+/* ===== Stats Section ===== */
+.stats-section {
+    background: #111;
+    padding: 3rem 0;
+}
+
+.stat-card {
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+.stat-card:hover {
+    transform: translateY(-15px) scale(1.05);
+    box-shadow: 0 20px 50px rgba(0, 212, 255, 0.3);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(0, 212, 255, 0.3);
+}
+
+.stat-card i {
+    color: #00d4ff;
+}
+
+.counter {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #00d4ff;
+    margin: 1rem 0;
+}
+
+/* ===== Footer ===== */
+.footer {
+    background: #000;
+    padding: 2rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.social-links a {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    color: #00d4ff;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.social-links a:hover {
+    background: #00d4ff;
+    color: #000;
+    transform: translateY(-5px);
+}
+
+/* ===== Scrollbar Styling ===== */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, #00d4ff, #7b2ff7);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #00d4ff;
+}
+
+/* ===== Z-Index Scale ===== */
+:root {
+    --z-base: 1;
+    --z-dropdown: 100;
+    --z-sticky: 200;
+    --z-navbar: 1000;
+    --z-progress: 2000;
+    --z-modal: 5000;
+    --z-preloader: 9000;
+}
+
+/* ===== Scroll Progress Bar ===== */
+.scroll-progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #00d4ff, #7b2ff7);
+    z-index: var(--z-progress);
+    transition: width 0.1s ease-out;
+    pointer-events: none;
+}
+
+/* ===== Preloader ===== */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #0a0a0a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: var(--z-preloader);
+    opacity: 1;
+    transition: opacity 0.5s ease;
+    pointer-events: auto;
+}
+
+#preloader.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.loader {
+    text-align: center;
+}
+
+.loader-circle {
+    width: 50px;
+    height: 50px;
+    border: 4px solid rgba(0, 212, 255, 0.2);
+    border-top-color: #00d4ff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ===== Accessibility ===== */
+.skip-to-main {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: #00d4ff;
+    color: #000;
+    padding: 8px;
+    text-decoration: none;
+    z-index: 100;
+}
+
+.skip-to-main:focus {
+    top: 0;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* ===== Scroll Hint Arrow ===== */
+.scroll-hint {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2rem;
+    color: #00d4ff;
+    cursor: none !important;
+    animation: bounceArrow 2s ease-in-out infinite;
+    z-index: 10;
+    transition: opacity 0.3s ease;
+}
+
+@keyframes bounceArrow {
+    0%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    50% {
+        transform: translateX(-50%) translateY(10px);
+    }
+}
+
+.scroll-hint:hover {
+    color: #7b2ff7;
+}
+
+/* ===== Section In View Animation ===== */
+section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+section.in-view {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ===== Page Load Animation ===== */
+body {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+body.loaded {
+    opacity: 1;
+}
+
+/* ===== Light Theme ===== */
+body.light-theme {
+    background: linear-gradient(135deg, #e8eaf0 0%, #b8c5d9 100%);
+    color: #0f1419;
+}
+
+body.light-theme .page-section {
+    background: linear-gradient(135deg, #f0f2f5 0%, #e5e8f0 100%);
+}
+
+body.light-theme .page-section:nth-child(even) {
+    background: linear-gradient(135deg, #e8eaf0 0%, #d5dae5 100%);
+}
+
+body.light-theme .section-title .lead {
+    color: #4a5568;
+    font-weight: 500;
+}
+
+body.light-theme .stats-section {
+    background: linear-gradient(135deg, #e8eaf0 0%, #d5dae5 100%);
+}
+
+body.light-theme .stat-card {
+    background: linear-gradient(135deg, #f5f7fa 0%, #ebeef5 100%);
+    border: 1px solid rgba(102, 126, 234, 0.15);
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.15);
+}
+
+body.light-theme .stat-card:hover {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    box-shadow: 0 20px 40px rgba(102, 126, 234, 0.25);
+}
+
+body.light-theme .stat-card:hover i,
+body.light-theme .stat-card:hover h3,
+body.light-theme .stat-card:hover p {
+    color: #ffffff !important;
+}
+
+body.light-theme .counter {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 900;
+}
+
+body.light-theme .footer {
+    background: #ffffff;
+    border-top: 1px solid rgba(102, 126, 234, 0.2);
+}
+
+/* ===== Performance Optimizations ===== */
+* {
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    -o-transform: translateZ(0);
+    transform: translateZ(0);
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 991px) {
+    .page-section {
+        padding: 3rem 0;
+    }
+    
+    .stat-card {
+        margin-bottom: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .display-4 {
+        font-size: 2rem;
+    }
+
+    .counter {
+        font-size: 2rem;
+    }
+
+    .section-title h2 {
+        font-size: 2rem;
+    }
+}
+
+/* ===== Print Styles ===== */
+@media print {
+    body {
+        background: white;
+        color: black;
+    }
+    
+    .navbar,
+    .hero-buttons,
+    .floating-icon,
+    .scroll-hint,
+    .scroll-indicator,
+    #preloader {
+        display: none !important;
+    }
+}
+
+

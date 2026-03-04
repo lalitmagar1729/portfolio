@@ -1,0 +1,394 @@
+/* ===================================
+   Hero Section Styles
+   @description Styles for hero section and floating icons
+   @version 3.0.0 - Refined Edition
+   =================================== */
+
+/* ===== HERO SECTION ===== */
+
+/* Hero Container */
+.hero-section {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+    position: relative;
+    padding-top: 80px;
+    overflow: hidden;
+}
+
+/* Neural Network Canvas */
+.neural-network {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.neural-network canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/* Animated Background Gradient */
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(0, 212, 255, 0.1) 0%, transparent 50%);
+    animation: rotateGradient 20s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes rotateGradient {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Particle Effect Background */
+.hero-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        radial-gradient(circle at 20% 30%, rgba(0, 212, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(123, 47, 247, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(0, 212, 255, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+/* Hero Content Container */
+.hero-section .container {
+    position: relative;
+    z-index: 1;
+}
+
+/* Hero Content Animations */
+.hero-section h1 {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s ease forwards;
+    animation-delay: 0.2s;
+}
+
+.hero-section h2 {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s ease forwards;
+    animation-delay: 0.4s;
+}
+
+.hero-section p {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s ease forwards;
+    animation-delay: 0.6s;
+}
+
+.hero-buttons {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s ease forwards;
+    animation-delay: 0.8s;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Fallback for users with animations disabled */
+@media (prefers-reduced-motion: reduce) {
+    .hero-section h1,
+    .hero-section h2,
+    .hero-section p,
+    .hero-buttons {
+        opacity: 1 !important;
+        transform: none !important;
+        animation: none !important;
+    }
+}
+
+/* Floating Animation for Hero Content */
+.hero-section .col-lg-8 {
+    animation: gentleFloat 6s ease-in-out infinite;
+}
+
+@keyframes gentleFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Text Gradient */
+.text-gradient {
+    background: linear-gradient(45deg, #00d4ff, #7b2ff7, #00d4ff);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientFlow 3s ease-in-out infinite;
+}
+
+@keyframes gradientFlow {
+    0%, 100% { background-position: 0% center; }
+    50% { background-position: 100% center; }
+}
+
+/* Enhanced Text Gradient Animation */
+.hero-section h1 {
+    color: #fff;
+}
+
+.hero-section h1 .text-gradient {
+    background: linear-gradient(45deg, #00d4ff, #7b2ff7, #00d4ff);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientFlow 3s ease-in-out infinite;
+}
+
+/* Hero Buttons */
+.hero-buttons .btn {
+    margin: 0.5rem;
+    padding: 0.75rem 2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #00d4ff, #7b2ff7);
+    border: none;
+    background-size: 200% 200%;
+    animation: gradientShiftBtn 3s ease infinite;
+}
+
+@keyframes gradientShiftBtn {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+.btn-primary:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 15px 35px rgba(0, 212, 255, 0.4);
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { box-shadow: 0 15px 35px rgba(0, 212, 255, 0.4); }
+    50% { box-shadow: 0 15px 45px rgba(0, 212, 255, 0.6); }
+}
+
+.btn-outline-light {
+    border: 2px solid #00d4ff;
+    color: #00d4ff;
+    background: transparent;
+}
+
+.btn-outline-light::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: #00d4ff;
+    transition: left 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: -1;
+}
+
+.btn-outline-light:hover::before {
+    left: 0;
+}
+
+.btn-outline-light:hover {
+    color: #000;
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 15px 35px rgba(0, 212, 255, 0.4);
+}
+
+/* Hero Image Container */
+.hero-image {
+    min-height: 400px;
+    position: relative;
+    opacity: 0;
+    animation: fadeIn 1.5s ease forwards;
+    animation-delay: 0.5s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Fallback for users with animations disabled */
+@media (prefers-reduced-motion: reduce) {
+    .hero-image {
+        opacity: 1 !important;
+        animation: none !important;
+    }
+}
+
+/* Floating Icons */
+.floating-icon {
+    position: absolute;
+    font-size: 2.8rem;
+    animation: smoothFloat 6s ease-in-out infinite;
+    opacity: 0.9;
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 5px 15px currentColor);
+    cursor: pointer;
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+.floating-icon:hover {
+    opacity: 1;
+    transform: scale(1.4) rotate(15deg) !important;
+    filter: drop-shadow(0 15px 40px currentColor) brightness(1.2);
+    z-index: 10;
+    animation-play-state: paused;
+}
+
+/* Icon Positions */
+.floating-icon:nth-child(1) { top: 8%; left: 12%; color: #61dafb; animation-delay: 0s; }
+.floating-icon:nth-child(2) { top: 8%; right: 12%; color: #f7df1e; animation-delay: 0.8s; }
+.floating-icon:nth-child(3) { top: 22%; left: 5%; color: #42b883; animation-delay: 1.6s; }
+.floating-icon:nth-child(4) { top: 22%; right: 5%; color: #dd0031; animation-delay: 2.4s; }
+.floating-icon:nth-child(5) { top: 38%; left: 18%; color: #e34f26; animation-delay: 3.2s; }
+.floating-icon:nth-child(6) { top: 38%; right: 18%; color: #1572b6; animation-delay: 4s; }
+.floating-icon:nth-child(7) { top: 54%; left: 8%; color: #cc6699; animation-delay: 4.8s; }
+.floating-icon:nth-child(8) { top: 54%; right: 8%; color: #7952b3; animation-delay: 0.4s; }
+.floating-icon:nth-child(9) { top: 70%; left: 15%; color: #f24e1e; animation-delay: 1.2s; }
+.floating-icon:nth-child(10) { top: 70%; right: 15%; color: #cb3837; animation-delay: 2s; }
+.floating-icon:nth-child(11) { top: 86%; left: 25%; color: #68a063; animation-delay: 2.8s; }
+.floating-icon:nth-child(12) { top: 86%; right: 25%; color: #00d9ff; animation-delay: 3.6s; }
+
+@keyframes smoothFloat {
+    0%, 100% { 
+        transform: translateY(0) translateX(0) rotate(0deg) scale(1); 
+        opacity: 0.85;
+    }
+    25% {
+        transform: translateY(-25px) translateX(10px) rotate(8deg) scale(1.05);
+        opacity: 0.95;
+    }
+    50% { 
+        transform: translateY(-50px) translateX(0) rotate(0deg) scale(1.1); 
+        opacity: 1;
+    }
+    75% {
+        transform: translateY(-25px) translateX(-10px) rotate(-8deg) scale(1.05);
+        opacity: 0.95;
+    }
+}
+
+/* Light Theme Hero */
+body.light-theme .hero-section {
+    background: linear-gradient(135deg, #e8eaf0 0%, #d5dae5 100%);
+}
+
+body.light-theme .hero-section::before {
+    background: radial-gradient(circle, rgba(102, 126, 234, 0.12) 0%, transparent 50%);
+}
+
+body.light-theme .hero-section::after {
+    background-image: 
+        radial-gradient(circle at 20% 30%, rgba(102, 126, 234, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(118, 75, 162, 0.08) 0%, transparent 50%);
+}
+
+body.light-theme .hero-section h1,
+body.light-theme .hero-section h2,
+body.light-theme .hero-section p {
+    color: #0f1419 !important;
+    text-shadow: none;
+}
+
+body.light-theme .text-gradient {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 900;
+}
+
+body.light-theme .btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #ffffff;
+    font-weight: 700;
+    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+}
+
+body.light-theme .btn-primary:hover {
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+    box-shadow: 0 15px 35px rgba(102, 126, 234, 0.5);
+}
+
+body.light-theme .btn-outline-light {
+    border: 2px solid #667eea;
+    color: #667eea;
+    background: transparent;
+}
+
+body.light-theme .btn-outline-light:hover {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #ffffff;
+    border-color: transparent;
+}
+
+body.light-theme .floating-icon {
+    color: #667eea;
+    opacity: 0.8;
+    filter: drop-shadow(0 5px 20px rgba(102, 126, 234, 0.3));
+}
+
+body.light-theme .floating-icon:hover {
+    color: #764ba2;
+    opacity: 1;
+    filter: drop-shadow(0 15px 40px rgba(102, 126, 234, 0.5));
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+    .hero-section {
+        text-align: center;
+        padding-top: 100px;
+    }
+    
+    .floating-icon {
+        display: none;
+    }
+
+    .hero-buttons .btn {
+        display: block;
+        width: 100%;
+        margin: 0.5rem 0;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+}

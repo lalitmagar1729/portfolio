@@ -1,0 +1,174 @@
+/* ===================================
+   Navbar Section Styles
+   @description Styles for navigation bar and theme toggle
+   @version 3.0.0 - Refined Edition
+   =================================== */
+
+/* ===== NAVBAR SECTION ===== */
+
+/* Base Navbar Styles */
+.navbar {
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 1rem 0;
+    transition: transform 0.3s ease-in-out, background 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    contain: layout style paint;
+    z-index: var(--z-navbar, 1000);
+}
+
+/* Navbar Brand */
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff !important;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.navbar-brand:hover {
+    color: #00d4ff !important;
+    transform: scale(1.05);
+    animation: brandBounce 0.6s ease-in-out;
+}
+
+@keyframes brandBounce {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+/* Nav Links */
+.nav-link {
+    color: #ccc !important;
+    margin: 0 0.5rem;
+    transition: color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-weight: 500;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: #00d4ff !important;
+    transform: translateY(-2px);
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+    background: transparent;
+    border: 2px solid #00d4ff;
+    color: #00d4ff;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    margin-left: 1rem;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.theme-toggle::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: #00d4ff;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1), 
+                height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: -1;
+}
+
+.theme-toggle:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.theme-toggle:hover {
+    color: #000;
+    transform: scale(1.05);
+    box-shadow: 0 5px 20px rgba(0, 212, 255, 0.4);
+}
+
+/* Navbar Toggler */
+.navbar-toggler {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.navbar-toggler:hover {
+    transform: scale(1.1);
+}
+
+/* Navbar States */
+.navbar.nav-up {
+    transform: translateY(-100%);
+}
+
+.navbar.nav-down {
+    transform: translateY(0);
+}
+
+.navbar.scrolled {
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+}
+
+.navbar.navbar-shadow {
+    box-shadow: 0 8px 40px rgba(0, 212, 255, 0.2);
+}
+
+/* Light Theme Navbar */
+body.light-theme .navbar {
+    background: rgba(240, 242, 245, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2);
+    border-bottom: 1px solid rgba(102, 126, 234, 0.2);
+}
+
+body.light-theme .navbar-brand {
+    color: #0f1419 !important;
+    font-weight: 800;
+}
+
+body.light-theme .navbar-brand:hover {
+    color: #5568d3 !important;
+}
+
+body.light-theme .nav-link {
+    color: #2d3748 !important;
+    font-weight: 600;
+}
+
+body.light-theme .nav-link:hover,
+body.light-theme .nav-link.active {
+    color: #5568d3 !important;
+}
+
+body.light-theme .theme-toggle {
+    border: 2px solid #667eea;
+    color: #667eea;
+    background: rgba(102, 126, 234, 0.1);
+}
+
+body.light-theme .theme-toggle:hover {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff;
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+body.light-theme .navbar.navbar-shadow {
+    box-shadow: 0 8px 40px rgba(102, 126, 234, 0.2);
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
+    
+    .theme-toggle {
+        margin-left: 0;
+        margin-top: 1rem;
+    }
+}
